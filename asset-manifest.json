@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Karisya/youtube-spa/static/css/main.f96a810d.css",
-    "main.js": "/Karisya/youtube-spa/static/js/main.53df2631.js",
-    "index.html": "/Karisya/youtube-spa/index.html",
-    "main.f96a810d.css.map": "/Karisya/youtube-spa/static/css/main.f96a810d.css.map",
-    "main.53df2631.js.map": "/Karisya/youtube-spa/static/js/main.53df2631.js.map"
+    "main.css": "/youtube-spa/static/css/main.f96a810d.css",
+    "main.js": "/youtube-spa/static/js/main.53df2631.js",
+    "index.html": "/youtube-spa/index.html",
+    "main.f96a810d.css.map": "/youtube-spa/static/css/main.f96a810d.css.map",
+    "main.53df2631.js.map": "/youtube-spa/static/js/main.53df2631.js.map"
   },
   "entrypoints": [
     "static/css/main.f96a810d.css",
