@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": "3e95",
+      "login": "karina",
+      "password": "Parol123",
+      "token": "ul8lirznnrjw1kmcman01p"
+    },
+    {
+      "id": "8869",
+      "login": "karina8",
+      "password": "parol123",
+      "token": "an6yqypbpjdsq6e8atwbfh"
+    },
+    {
+      "id": "8028",
+      "login": "karina8",
+      "password": "parol123",
+      "token": "b0ff0hz1l738q7icl7lik"
+    },
+    {
+      "id": "c618",
+      "login": "karina8",
+      "password": "parol123",
+      "token": "5qc4drm7vyathjuhy0upo"
+    },
+    {
+      "id": "8053",
+      "login": "karina8",
+      "password": "parol123",
+      "token": "zoqw0q9y19oixgigg5fve"
+    },
+    {
+      "id": "a638",
+      "login": "karina8",
+      "password": "parol123",
+      "token": "awmye7z5mwvodibk6zh138"
+    }
+  ]
+}
