@@ -42,7 +42,7 @@ export const Favorites = () => {
     const handleEdit = (item) => {
         dispatch(setEdit(item))
         dispatch(setShow(true))
-        dispatch(submitEdits(item))
+        // dispatch(submitEdits(item))
         navigate('/search')
     }
 
