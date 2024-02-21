@@ -1,7 +1,7 @@
+import { useSelector } from 'react-redux'
+import { Space, Typography } from 'antd'
 import VideoDetail from "../videoDetail"
 import VideoItem from "../items";
-import { Space, Card, Typography, Image } from 'antd'
-import { useSelector } from 'react-redux'
 
 export const YoutubePage = () => {
 

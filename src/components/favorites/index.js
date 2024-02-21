@@ -1,19 +1,39 @@
+import { useDispatch, useSelector } from 'react-redux'
+import axios from '../../axios';
+import { useNavigate } from 'react-router-dom'
+import { Typography, Card , Space} from 'antd'
+import { DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons'
+
+import { EditModal } from '../editModal';
+
 import { setVideos } from '../../redux/slices/videoSlice';
 import { setSearch } from '../../redux/slices/searchSlice';
-import axios from '../../axios';
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { setClick } from '../../redux/slices/clickSlice';
-import { deleteFavorites, submitEdits } from '../../redux/slices/favoritesSlice';
-import { setShow } from '../../redux/slices/showSlice';
-import { setEdit } from '../../redux/slices/editSlice';
+import { addToFavorites, deleteFavorites } from '../../redux/slices/favoritesSlice';
+import { setEditItem } from '../../redux/slices/editItemSlice';
+import { setEditShow } from '../../redux/slices/editShowSlice';
+
 
 export const Favorites = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const list = useSelector(state => state.favorites)
+    const favorites = useSelector(state => state.favorites)
+
+    const listJSON = localStorage.getItem('requestsList');
+    let list = [];
+
+    if (listJSON) {
+        try {
+            list = JSON.parse(listJSON);
+        } catch (error) {
+            console.error('Ошибка парсинга JSON:', error);
+        }
+    }
+
+    if (favorites.length === 0)
+        dispatch(addToFavorites(list))
 
     const handleFormSubmit = async (termFromSearchBar, sort, videoCount) => {
         const response = await axios.get('/search', {
@@ -40,23 +60,29 @@ export const Favorites = () => {
     }
 
     const handleEdit = (item) => {
-        dispatch(setEdit(item))
-        dispatch(setShow(true))
-        // dispatch(submitEdits(item))
-        navigate('/search')
+        dispatch(setEditItem(item))
+        dispatch(setEditShow(true))
     }
 
     return (
-        <div>
+        <div className='favorites'>
+            <Typography className='favorites__title'>Избранное</Typography>
             <ul>{list.map(i =>
-                <div key={i.key}>
-                    <li >{i.term}</li>
-                    <button onClick={() => executeFavorit(i.key)}>выполнить</button>
-                    <button onClick={() => handleDelete(i.key)} >удалить</button>
-                    <button onClick={() => handleEdit(i)} >редактировать</button>
-                </div>
+                <Card  className='favorites__item'> 
+                    {
+                        i.name ?
+                            <li>{i.name}</li> :
+                            <li >{i.term}</li>
+                    }
+                    <Space className='favorites__buttons'>
+                    <SearchOutlined onClick={() => executeFavorit(i.key)} key={i.key} />
+                    <DeleteOutlined onClick={() => handleDelete(i.key)} />
+                    <EditOutlined onClick={() => handleEdit(i)} />
+                    </Space>
+                </Card>
             )}
             </ul>
-        </div>
+            <EditModal />
+        </div >
     )
 }

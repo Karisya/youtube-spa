@@ -1,19 +1,17 @@
 import React from "react";
 import { useSelector } from 'react-redux'
-import { Space, Card, Typography, Image } from 'antd'
+import { Card, Typography } from 'antd'
 
 const VideoDetail = () => {
 
     const video = useSelector(state => state.selectedVideo)
 
     if (!video) {
-        return <div>
-
-        </div>;
+        return <div></div>;
     }
 
     const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
-    console.log('video:', video);
+    
     return (
         <div className="video">
             <div className="ui embed">
