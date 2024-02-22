@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Space, Typography } from 'antd'
+import { Typography } from 'antd'
 import VideoDetail from "../videoDetail"
 import VideoItem from "../items";
 
@@ -18,10 +18,10 @@ export const YoutubePage = () => {
     return (
         <>
             <Typography>Результаты по запросу " {term} "</Typography>
-            <Space className="youtube-videos">
+            <div className="youtube-videos">
                 <VideoDetail />
-                <Space className={click === 'row' ? 'row-list' : "column-list"} >{renderedVideos}</Space>
-            </Space>
+                <div className={click === 'row' ? 'row-list' : "column-list"} >{renderedVideos}</div>
+            </div>
         </>
     )
 }

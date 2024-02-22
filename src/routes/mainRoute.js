@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, Outlet, Link, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet, Link, useNavigate } from 'react-router-dom';
 import { Login } from '../components/login';
 import { Search } from '../components/youtubeSearch/searchPage';
 import { Favorites } from '../components/favorites';

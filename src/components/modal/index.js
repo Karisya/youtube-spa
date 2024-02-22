@@ -36,13 +36,11 @@ export const Modal = ({ show, onClose }) => {
         }
         else {
             dispatch(addToFavorites(favorit))
+            dispatch(setTerm(''))
             localStorage.setItem('requestsList', JSON.stringify([...favorites, favorit]))
         }
         onClose()
     }
-
-    console.log('list1', favorites)
-
 
     return (
         <>
@@ -72,8 +70,8 @@ export const Modal = ({ show, onClose }) => {
                             </Col>
                         </Row>
                         <div>
-                            <Button onClick={handleSubmit}>save</Button>
-                            <Button onClick={onClose}>not save</Button>
+                            <Button onClick={handleSubmit}>сохранить</Button>
+                            <Button onClick={onClose}>не сохранять</Button>
                         </div>
                     </Card>
                 </Space>

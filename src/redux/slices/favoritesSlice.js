@@ -6,11 +6,10 @@ const favoritesSlice = createSlice({
     reducers: {
         addToFavorites: (state, action) => {
             state.push(action.payload)
-            return state
         },
         deleteFavorites: (state, action) => {
             let newState = state.filter(item => item.key !== action.payload)
-            localStorage.setItem('favoritsList', JSON.stringify(newState));
+            localStorage.setItem('requestsList', JSON.stringify(newState));
             return newState
         },
         submitEdits: (state, action) => {

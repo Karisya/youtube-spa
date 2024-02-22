@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import axios from '../../axios';
 import { useNavigate } from 'react-router-dom'
-import { Typography, Card , Space} from 'antd'
+import { Typography, Card, Space } from 'antd'
 import { DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons'
 
 import { EditModal } from '../editModal';
@@ -32,7 +32,7 @@ export const Favorites = () => {
         }
     }
 
-    if (favorites.length === 0)
+    if (favorites.length === 0 && list.length > 0)
         dispatch(addToFavorites(list))
 
     const handleFormSubmit = async (termFromSearchBar, sort, videoCount) => {
@@ -68,16 +68,16 @@ export const Favorites = () => {
         <div className='favorites'>
             <Typography className='favorites__title'>Избранное</Typography>
             <ul>{list.map(i =>
-                <Card  className='favorites__item'> 
+                <Card className='favorites__item'>
                     {
                         i.name ?
                             <li>{i.name}</li> :
                             <li >{i.term}</li>
                     }
                     <Space className='favorites__buttons'>
-                    <SearchOutlined onClick={() => executeFavorit(i.key)} key={i.key} />
-                    <DeleteOutlined onClick={() => handleDelete(i.key)} />
-                    <EditOutlined onClick={() => handleEdit(i)} />
+                        <SearchOutlined onClick={() => executeFavorit(i.key)} key={i.key} />
+                        <DeleteOutlined onClick={() => handleDelete(i.key)} />
+                        <EditOutlined onClick={() => handleEdit(i)} />
                     </Space>
                 </Card>
             )}
