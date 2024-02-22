@@ -10,7 +10,6 @@ export const EditModal = () => {
 
     const dispatch = useDispatch()
 
-    const list = useSelector(state => state.favorites)
     const editedItem = useSelector(state => state.editItem)
     const show = useSelector(state => state.editShow)
 
@@ -45,10 +44,6 @@ export const EditModal = () => {
     const onChangeSort = (e) => {
         dispatch(setEditItem({ ...editedItem, sort: e.target.value }))
     }
-
-    console.log("item", editedItem)
-    console.log("list", list)
-
 
     return (<>
         {show && (

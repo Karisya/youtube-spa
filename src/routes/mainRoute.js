@@ -20,6 +20,7 @@ const MainRoute = () => {
     };
 
     return (
+
         <>
             {isAuth && (
                 <nav className='route__menu menu'>
@@ -31,6 +32,7 @@ const MainRoute = () => {
                 </nav>
             )}
             <Routes>
+                <Route index element={<Login />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/favorites' element={<Favorites />} />
                 <Route path='/search' element={<PrivateRoute element={<Search />} />} />
